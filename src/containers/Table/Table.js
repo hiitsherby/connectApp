@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Nav, Col, Button, Grid, Row, Panel, Image, DropdownButton, MenuItem, ButtonGroup} from 'react-bootstrap';
-import Header from '../../components/UI/Header/Header.js';
+import {Navbar, NavItem, Nav, Col, Button, Grid, Row, Panel, Image, DropdownButton, Breadcrumb, MenuItem, ButtonGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
+import Header from '../../components/UI/Header/Header';
+import HelpDesk from '../../components/HelpDesk/HelpDesk';
+import SideBar from '../../components/SideBar/SideBar';
+
+import './Table.css';
 
 class Table extends Component {
     state = {
@@ -12,22 +16,81 @@ class Table extends Component {
             B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
             C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
             D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
-          }
+          },
+          clicked: true
         },
-      ] 
+        {
+          question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
+          answers: {
+            A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
+            B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+            C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+            D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+          },
+          clicked: false
+        },
+        {
+          question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
+          answers: {
+            A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
+            B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+            C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+            D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+          },
+          clicked: false
+        },
+      ],
+      active: 0,
     }
+    
+    toggle(item){
+      if (this.state.active === item) {
+        this.setState({active : null})
+      } else {
+        this.setState({active : item})
+      }
+    }
+    
+    isActive(item) {
+      if (this.state.active === item) {
+        return "Panel:hover";
+      }
+      return "Panel";
+    }
+    
     render(){
-      // map each answer to anwer panel
+      
       let questions = [], answers = [];
-      this.state.questions.map(question => {
-        console.log('question.answers', question.answers);
+      this.state.questions.map((question, index) => {
+        //map question to question panel
+        questions.push(
+            <Panel
+              key={index}
+              style={{display: question.clicked? 'block':'none'}}
+            >
+              <Panel.Body>
+                <p className="questionHeading">
+                  Question {index+1} of {this.state.questions.length}
+                </p>
+                {question.question}
+              </Panel.Body>
+            </Panel>          
+          );
+        // map each answer to anwer panel
         for (let item in question.answers){
-          
           answers.push(
-              <Panel bsStyle="default">
-                <Panel.Heading>{item}</Panel.Heading>
-                <Panel.Body>{question.answers[item]}</Panel.Body>
-              </Panel>          
+              <Panel 
+                key={item}
+                className="Panel"
+                style={{display: question.clicked? 'block':'none'}}
+              >
+                <p className="panelHeading">
+                  {item}
+                </p>
+                <Panel.Body>
+                  {question.answers[item]}
+                </Panel.Body>
+              </Panel>    
             );
           }
       });
@@ -37,31 +100,30 @@ class Table extends Component {
         return (
             <div>
                 <Header />
+                <Grid>
                 <Row>
-                  <Col sm={2} md={2} lg={2}>
-                    <ButtonGroup vertical block>
-                      <Button>Home</Button>
-                      <Button>Topics</Button>
-                      <Button>Practice Quiz</Button>
-                    </ButtonGroup>
+                  <Col sm={3} md={3} lg={3}>
+                    <SideBar />
                   </Col>
-                  <Col sm={10} md={10} lg={10}>
+                  <Col sm={9} md={9} lg={9}>
+                  
                     <Row>
-                      <Col sm={1} md={1} lg={1}></Col>
-                      <Col sm={10} md={10} lg={10}>
-                        <Panel>
-                          <Panel.Heading>Question 3 of 8</Panel.Heading>
-                          <Panel.Body>
-                          </Panel.Body>
-                        </Panel>
-                        
-                        {answers}
-                        
+                      <Col sm={12} md={12} lg={12}>
+                        <div className="div">
+                          {questions}
+                          {answers}
+                        </div>
+                        <div className="div">
+                         <Button className="button">Check Answer</Button>
+                        </div>
+                        <div className="div">
+                          <HelpDesk />
+                        </div>
                       </Col>
-                      <Col sm={1} md={1} lg={1}></Col>
                     </Row>
                   </Col>
                 </Row>
+                </Grid>
             </div>
         );
     }

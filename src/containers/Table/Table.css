@@ -1,0 +1,47 @@
+.panelHeading{
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #2a8bf9;
+    
+}
+.Panel:hover{
+    box-shadow: inset 0px 0px 0px 3px #2a8bf9;
+    cursor: pointer;
+}
+.panelHeading:active{
+    background-color: skyblue;
+}
+.questionHeading{
+    background-color: white;
+    color: #2a8bf9;
+    font-weight: bold;
+    text-align: left;
+}
+.button{
+    background-color: #2a8bf9;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold; 
+    padding-left: 5%;
+    padding-right: 5%
+}
+.div{
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    padding: 2% 5%;
+}
+.sidebarBtn{
+    width: 100%;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    background-color: #f5f5f5;
+    font-weight: 400;
+    font-size: 15px;
+    padding: 5px;
+
+}
+.list-group-item{
+    text-align: left
+}

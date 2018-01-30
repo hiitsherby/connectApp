@@ -1,4 +1,8 @@
-.brandIcon{
-    height: 25px;
-    width: auto;
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: black;
+}
+.navbar-brand>img {
+  padding: 7px 7px;
 }

@@ -1,0 +1,27 @@
+.list-group-item{
+    background-color: transparent;
+    font-weight: 500;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    padding: 5%;
+}
+.list-group-item:hover{
+    color: #2a8bf9;
+    cursor: pointer;
+}
+.list-group-item:active{
+    color: #2a8bf9;
+}
+.icon{
+    margin-top: 5px;
+}
+.subBar{
+    padding-left: 8%;
+    font-size: 13px;
+    border-bottom: 0px;
+    border-top: 0px
+}
+.active{
+    color: #2a8bf9;
+}
