@@ -6,8 +6,11 @@
     
 }
 .Panel:hover{
-    box-shadow: inset 0px 0px 0px 3px #2a8bf9;
+    box-shadow: inset 0px 0px 0px 2px #2a8bf9;
     cursor: pointer;
+}
+.PanelActive{
+    box-shadow: inset 0px 0px 0px 3px #2a8bf9;
 }
 .panelHeading:active{
     background-color: skyblue;

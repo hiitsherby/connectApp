@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Nav, Col, Button, Grid, Row, Panel, Image, DropdownButton, Breadcrumb, MenuItem, ButtonGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
+import {Col, Button, Grid, Row, Panel} from 'react-bootstrap';
 import Header from '../../components/UI/Header/Header';
 import HelpDesk from '../../components/HelpDesk/HelpDesk';
 import SideBar from '../../components/SideBar/SideBar';
@@ -7,66 +7,64 @@ import SideBar from '../../components/SideBar/SideBar';
 import './Table.css';
 
 class Table extends Component {
-    state = {
-      questions:[
-        {
-          question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
-          answers: {
-            A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
-            B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+    constructor(props){
+      super(props);
+      this.state = {
+        //question contents
+        questions:[
+          {
+            question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
+            answers: {
+              A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
+              B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            }
           },
-          clicked: true
-        },
-        {
-          question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
-          answers: {
-            A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
-            B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+          {
+            question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
+            answers: {
+              A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
+              C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            }
           },
-          clicked: false
-        },
-        {
-          question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
-          answers: {
-            A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
-            B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
-            D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+          {
+            question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
+            answers: {
+              A: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus',
+              B: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.',
+              C: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus.',
+              D: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit.'
+            }
           },
-          clicked: false
-        },
-      ],
-      active: 0,
-    }
-    
-    toggle(item){
-      if (this.state.active === item) {
-        this.setState({active : null})
-      } else {
-        this.setState({active : item})
+        ],
+        active: 1,
+        answer: 0
       }
     }
-    
-    isActive(item) {
-      if (this.state.active === item) {
-        return "Panel:hover";
-      }
-      return "Panel";
+ 
+    //which question is active
+    isClicked(i){
+      this.setState({active: i});
     }
+    // which answer is clicked
+    handleClickAnswer(e,i){
+      e.preventDefault();
+      this.setState({answer: i});
+      console.log(this.state.answer);
+    }
+    
     
     render(){
-      
       let questions = [], answers = [];
       this.state.questions.map((question, index) => {
         //map question to question panel
         questions.push(
             <Panel
               key={index}
-              style={{display: question.clicked? 'block':'none'}}
+              style={{display: this.state.active === index+1? 'block':'none'}}
             >
               <Panel.Body>
                 <p className="questionHeading">
@@ -80,9 +78,10 @@ class Table extends Component {
         for (let item in question.answers){
           answers.push(
               <Panel 
-                key={item}
-                className="Panel"
-                style={{display: question.clicked? 'block':'none'}}
+                key={index+'_'+item}
+                className={this.state.answer === index+'_'+item? "PanelActive":"Panel"}
+                style={{display: this.state.active === index+1? 'block':'none'}}
+                onClick={e=>this.handleClickAnswer(e,index+'_'+item)}
               >
                 <p className="panelHeading">
                   {item}
@@ -95,15 +94,16 @@ class Table extends Component {
           }
       });
       
-
-
         return (
             <div>
                 <Header />
                 <Grid>
                 <Row>
                   <Col sm={3} md={3} lg={3}>
-                    <SideBar />
+                    <SideBar 
+                      isClicked={this.isClicked.bind(this)}
+                      {...this.state}
+                    />
                   </Col>
                   <Col sm={9} md={9} lg={9}>
                   

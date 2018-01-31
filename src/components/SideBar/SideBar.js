@@ -3,14 +3,20 @@ import {ListGroupItem, ListGroup} from 'react-bootstrap';
 import './SideBar.css';
 
 class SideBar extends Component{
+    // click on questions on sidebar
+    handleClick(e,i){
+      e.preventDefault();
+      this.props.isClicked(i);
+    }
 
     render(){
       let questionList = [];
       for (let i = 1; i < 9; i++){
         questionList.push(
           <ListGroupItem 
-            className="subBar"
+            className={this.props.active===i? "subBar active":"subBar"}
             key={i}
+            onClick={e => this.handleClick(e,i)}
           >
             <i className="fa fa-circle fa-fw" aria-hidden="true"></i>
             Question {i}
@@ -26,8 +32,10 @@ class SideBar extends Component{
           <ListGroupItem>
               <i className="fa fa-list-ul fa-lg fa-fw" aria-hidden="true"></i>
               Topics/
-              <p className="active">Galvanic Chemistry<i className="fa fa-chevron-right pull-right icon" aria-hidden="true"></i></p>
-              
+              <p className="active">
+                Galvanic Chemistry
+                <i className="fa fa-chevron-right pull-right icon" aria-hidden="true"></i>
+              </p>
           </ListGroupItem>
           <ListGroupItem>
             <p className="active">

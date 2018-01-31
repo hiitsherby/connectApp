@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Navbar, NavItem, Nav, Col, Button, Grid, Row, Panel, Image, DropdownButton, MenuItem, ButtonGroup, ListGroupItem, ListGroup} from 'react-bootstrap';
+import {Col, Button, Row, ListGroupItem, ListGroup} from 'react-bootstrap';
 import './HelpDesk.css';
-import FontAwesome from 'react-fontawesome';
 
 class HelpDesk extends Component{
     state = {
@@ -25,11 +24,9 @@ class HelpDesk extends Component{
     }
       
     render(){
-        
         let topics = [];
         this.state.topics.map((topic, index) => {
           topics.push(
-
             <ListGroupItem 
               key={index}
               href={topic.link}
@@ -45,7 +42,7 @@ class HelpDesk extends Component{
               </Row>
             </ListGroupItem>   
           );
-        })
+        });
         return(
         <div>
           <p>

@@ -3,15 +3,17 @@
     font-weight: 500;
     border-left: 0px;
     border-right: 0px;
-    border-top: 0px;
     padding: 5%;
 }
 .list-group-item:hover{
     color: #2a8bf9;
     cursor: pointer;
+    background-color: transparent;
+    padding: 5%;
 }
-.list-group-item:active{
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover{
     color: #2a8bf9;
+    background-color: transparent;
 }
 .icon{
     margin-top: 5px;

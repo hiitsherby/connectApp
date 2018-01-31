@@ -7,3 +7,6 @@
 .list-group-item{
     padding: 3%;
 }
+.list-group-item:hover{
+    color: white;
+}
