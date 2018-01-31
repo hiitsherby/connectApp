@@ -10,7 +10,7 @@ class Table extends Component {
     constructor(props){
       super(props);
       this.state = {
-        //question contents
+        // 3 example questions
         questions:[
           {
             question: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 
@@ -45,7 +45,7 @@ class Table extends Component {
       }
     }
  
-    //which question is active
+    // which question is active
     isClicked(i){
       this.setState({active: i});
     }
@@ -60,7 +60,7 @@ class Table extends Component {
     render(){
       let questions = [], answers = [];
       this.state.questions.map((question, index) => {
-        //map question to question panel
+        // map questions to question panel
         questions.push(
             <Panel
               key={index}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {ListGroupItem, ListGroup} from 'react-bootstrap';
+import { ListGroupItem, ListGroup } from 'react-bootstrap';
 import './SideBar.css';
 
 class SideBar extends Component{
@@ -10,8 +10,9 @@ class SideBar extends Component{
     }
 
     render(){
+      // render question number to side bar
       let questionList = [];
-      for (let i = 1; i < 9; i++){
+      for (let i = 1; i < this.props.questions.length+1; i++){
         questionList.push(
           <ListGroupItem 
             className={this.props.active===i? "subBar active":"subBar"}
@@ -23,30 +24,30 @@ class SideBar extends Component{
           </ListGroupItem>      
         );
       }      
-        return(
-         <ListGroup>
-          <ListGroupItem>
-            <i className="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>
-            Home
-          </ListGroupItem>
-          <ListGroupItem>
-              <i className="fa fa-list-ul fa-lg fa-fw" aria-hidden="true"></i>
-              Topics/
-              <p className="active">
-                Galvanic Chemistry
-                <i className="fa fa-chevron-right pull-right icon" aria-hidden="true"></i>
-              </p>
-          </ListGroupItem>
-          <ListGroupItem>
+      return(
+       <ListGroup>
+        <ListGroupItem>
+          <i className="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>
+          Home
+        </ListGroupItem>
+        <ListGroupItem>
+            <i className="fa fa-list-ul fa-lg fa-fw" aria-hidden="true"></i>
+            Topics/
             <p className="active">
-              <i className="fa fa-pencil fa-lg fa-fw" aria-hidden="true"></i>
-              Practice Quiz
-              <i className="fa fa-chevron-down pull-right" aria-hidden="true"></i>
+              Galvanic Chemistry
+              <i className="fa fa-chevron-right pull-right icon" aria-hidden="true"></i>
             </p>
-          </ListGroupItem>  
-          {questionList}
-        </ListGroup>
-        );
+        </ListGroupItem>
+        <ListGroupItem>
+          <p className="active">
+            <i className="fa fa-pencil fa-lg fa-fw" aria-hidden="true"></i>
+            Practice Quiz
+            <i className="fa fa-chevron-down pull-right" aria-hidden="true"></i>
+          </p>
+        </ListGroupItem>  
+        {questionList}
+      </ListGroup>
+      );
     }
 }
 

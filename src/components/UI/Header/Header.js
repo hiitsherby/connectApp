@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Header.css';
-import {Navbar} from 'react-bootstrap';
+import { Navbar } from 'react-bootstrap';
 
 
 class Header extends Component {
@@ -35,5 +35,3 @@ class Header extends Component {
 }
 
 export default Header;                        
-
-// <Image className="brandIcon" src="https://pbs.twimg.com/profile_images/875912995389423616/VmUYu0vi_400x400.jpg"/>
