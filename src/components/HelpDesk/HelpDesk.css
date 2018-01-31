@@ -7,3 +7,9 @@
 .list-group-item{
     padding: 3%;
 }
+.noneHover:hover{
+	padding: 5% !important;
+}
+*:focus{
+    outline: none;
+}

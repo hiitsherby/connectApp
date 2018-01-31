@@ -52,7 +52,7 @@ class HelpDesk extends Component{
             Need Help? Use the Knowledge Base to access detailed hints, tutorials, and question analyses.
           </p>
           <ListGroup className="listGroup">
-            <ListGroupItem>
+            <ListGroupItem className="noneHover">
               <Button className="button">Knowledge Base</Button>
             </ListGroupItem>
             {topics}
