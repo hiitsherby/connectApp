@@ -53,7 +53,6 @@ class Table extends Component {
     handleClickAnswer(e,i){
       e.preventDefault();
       this.setState({answer: i});
-      console.log(this.state.answer);
     }
     
     

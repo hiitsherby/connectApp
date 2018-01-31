@@ -3,6 +3,7 @@ import {Col, Button, Row, ListGroupItem, ListGroup} from 'react-bootstrap';
 import './HelpDesk.css';
 
 class HelpDesk extends Component{
+  // example topics in helpdesk
     state = {
       topics: [
         {
@@ -24,6 +25,7 @@ class HelpDesk extends Component{
     }
       
     render(){
+      // map topics to helpdesk
         let topics = [];
         this.state.topics.map((topic, index) => {
           topics.push(
