@@ -1,3 +1,20 @@
+.div, .panel{
+    -webkit-animation-name: display; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: display;
+    animation-duration: 2s;    
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes display {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes display {
+    from {opacity: 0}
+    to {opacity: 1}
+}
 .panelHeading{
     margin-top: 10px;
     text-align: center;
@@ -6,13 +23,14 @@
 }
 .Panel:hover{
     box-shadow: inset 0px 0px 0px 2px #2a8bf9;
-    cursor: pointer;
+    cursor: pointer; 
 }
 .PanelActive{
     box-shadow: inset 0px 0px 0px 3px #2a8bf9;
-}
-.panelHeading:active{
-    background-color: skyblue;
+    -webkit-animation-name: display; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: display;
+    animation-duration: 2s;  
 }
 .questionHeading{
     background-color: white;
@@ -32,17 +50,6 @@
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     padding: 2% 5%;
-}
-.sidebarBtn{
-    width: 100%;
-    border-left: 0px;
-    border-right: 0px;
-    border-top: 0px;
-    background-color: #f5f5f5;
-    font-weight: 400;
-    font-size: 15px;
-    padding: 5px;
-
 }
 .list-group-item{
     text-align: left

@@ -6,3 +6,6 @@
 .navbar-brand>img {
   padding: 7px 7px;
 }
+img:hover{
+	cursor: pointer
+}

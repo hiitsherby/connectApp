@@ -32,6 +32,7 @@ class HelpDesk extends Component{
             <ListGroupItem 
               key={index}
               href={topic.link}
+              className="topic"
             >
               <Row>
                 <Col sm={10} md={10} lg={10}>
