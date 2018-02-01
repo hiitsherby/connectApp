@@ -36,11 +36,11 @@ class SideBar extends Component{
       }      
       return(
        <ListGroup>
-        <ListGroupItem>
+        <ListGroupItem className="noneHover">
           <i className="fa fa-home fa-lg fa-fw" aria-hidden="true"></i>
           Home
         </ListGroupItem>
-        <ListGroupItem>
+        <ListGroupItem className="noneHover">
             <i className="fa fa-list-ul fa-lg fa-fw" aria-hidden="true"></i>
             Topics/
             <p className="active">
@@ -50,14 +50,15 @@ class SideBar extends Component{
         </ListGroupItem>
         <ListGroupItem
           onClick={e => this.showQuiz(e)} // show quizes
+          className="noneHover"
         >
           <p className="active">
             <i className="fa fa-pencil fa-lg fa-fw" aria-hidden="true"></i>
             Practice Quiz
             {this.state.showQuiz? 
-              <i className="fa fa-chevron-right pull-right icon" aria-hidden="true"></i>
-              :
               <i className="fa fa-chevron-down pull-right" aria-hidden="true"></i>
+              :            
+              <i className="fa fa-chevron-right pull-right icon" aria-hidden="true"></i>
             }
           </p>
         </ListGroupItem>  
