@@ -9,17 +9,17 @@ class HelpDesk extends Component{
         {
           header: "Terminology and predicting reactions",
           description: "Mini-tutorial",
-          link: "href1"
+          link: "#"
         },
         {
           header: "Fuel cells and their advantages and disadvantages",
           description: "Mini-tutorial",
-          link: "href2"
+          link: "#"
         },
         {
           header: "The hydrogen fuel cell",
           description: "Mini-tutorial",
-          link: "href3"
+          link: "#"
         }
       ]
     }
