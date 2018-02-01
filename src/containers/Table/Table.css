@@ -1,25 +1,8 @@
-.div, .panel{
+.panel{
     -webkit-animation-name: display; /* Safari 4.0 - 8.0 */
     -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
     animation-name: display;
     animation-duration: 2s;    
-}
-/* Safari 4.0 - 8.0 */
-@-webkit-keyframes display {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
-/* Standard syntax */
-@keyframes display {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-.panelHeading{
-    margin-top: 10px;
-    text-align: center;
-    font-weight: bold;
-    color: #2a8bf9;
 }
 .Panel:hover{
     box-shadow: inset 0px 0px 0px 2px #2a8bf9;
@@ -31,6 +14,12 @@
     -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
     animation-name: display;
     animation-duration: 2s;  
+}
+.panelHeading{
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #2a8bf9;
 }
 .questionHeading{
     background-color: white;
@@ -50,7 +39,22 @@
     border-bottom: 1px solid #ddd;
     border-left: 1px solid #ddd;
     padding: 2% 5%;
+    -webkit-animation-name: display; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 2s; /* Safari 4.0 - 8.0 */
+    animation-name: display;
+    animation-duration: 2s; 
 }
 .list-group-item{
     text-align: left
+}
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes display {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
+/* Standard syntax */
+@keyframes display {
+    from {opacity: 0}
+    to {opacity: 1}
 }
